@@ -1,0 +1,1 @@
+## WebFlix- Clon of Netflix built with JAVASCRIPT, PHP AND MYSQL
