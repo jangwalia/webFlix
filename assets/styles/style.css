@@ -15,6 +15,35 @@ html,body {
 .column{
   background-color: white;
   width: 45%;
-  height: 70%;
   
+  
+}
+
+.column form{
+  display:flex;
+  flex-direction:column;
+  
+}
+
+.column form input[type = 'text'],
+.column form input[type = 'email'],
+.column form input[type = 'password']{
+  font-size : 14px;
+  margin: 10px 0;
+  border:none;
+  border-bottom:1px solid #dedede;
+}
+
+.column form input[type = 'submit']{
+  background-color: rgb(68, 68, 197);
+  color:#efefee;
+  width: 100px;
+  height: 40px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 100;
+
 }
