@@ -18,8 +18,13 @@
   <title>Web Flix</title>
 </head>
 <body>
+
   <div class="signInContainer">
     <div class="column">
+    <div class="header">
+      <h3>Sign In</h3>
+      <span>to continue on webFlix</span>
+    </div>
       <form method='POST'>
         <input type="text" name = 'username' placeholder = 'Enter username' required>
         <input type="email" name = 'email' placeholder = 'Enter email' required>
