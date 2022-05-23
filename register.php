@@ -1,3 +1,12 @@
+<?php
+  if(isset($_POST['submitButton'])){
+    echo "Form is submitted";
+  }
+
+
+?>
+
+
 <! DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +18,17 @@
   <title>Web Flix</title>
 </head>
 <body>
-  <h1>Welcome to web Flix</h1>
+  <div class="signInContainer">
+    <div class="column">
+      <form method='POST'>
+        <input type="text" name = 'username' placeholder = 'Enter username' required>
+        <input type="email" name = 'email' placeholder = 'Enter email' required>
+        <input type="email" name = 'email2' placeholder = 'Confirm email' required>
+        <input type="password" name = 'password' placeholder = 'Enter password' required>
+        <input type="password" name = 'username2' placeholder = 'Confirm password' required>
+        <input type="submit" name = 'submitButton' value = 'Register'>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
