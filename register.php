@@ -2,7 +2,15 @@
   require_once("includes/classes/Formsanitizer.php");
   if(isset($_POST['submitButton'])){
     $firstName = Formsanitizer::sanitizeInput($_POST['firstName']);
+    $lastName = Formsanitizer::sanitizeLastname($_POST['lastName']);
+    $userName = Formsanitizer::sanitizeUsername($_POST['username']);
+    $email = Formsanitizer::sanitizeEmail($_POST['email']);
+    $password = Formsanitizer::sanitizePassword($_POST['password']);
     echo $firstName;
+    echo $lastName;
+    echo $userName;
+    echo $email;
+    echo $password;
   }
 
 
