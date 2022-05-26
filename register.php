@@ -12,11 +12,6 @@
     echo $email;
     echo $password;
   }
-
-
-
-  
-
 ?>
 
 
