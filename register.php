@@ -1,6 +1,8 @@
 <?php
   require_once("includes/classes/Formsanitizer.php");
   require_once("includes/classes/config.php");
+  require_once("includes/classes/Account.php");
+  $account = new Account ($conn);
   if(isset($_POST['submitButton'])){
     $firstName = Formsanitizer::sanitizeInput($_POST['firstName']);
     $lastName = Formsanitizer::sanitizeLastname($_POST['lastName']);
