@@ -9,11 +9,7 @@
     $userName = Formsanitizer::sanitizeUsername($_POST['username']);
     $email = Formsanitizer::sanitizeEmail($_POST['email']);
     $password = Formsanitizer::sanitizePassword($_POST['password']);
-    echo $firstName;
-    echo $lastName;
-    echo $userName;
-    echo $email;
-    echo $password;
+    $account->validateFirstname($firstName);
   }
 ?>
 
@@ -38,6 +34,7 @@
       <span>to continue on webFlix</span>
     </div>
       <form method='POST'>
+        <?php echo $account->getError("invalid length for name"); ?>
         <input type="text" name = 'firstName' placeholder = 'Enter Firstname' required>
         <input type="text" name = 'lastName' placeholder = 'Enter Lastname' required>
         <input type="text" name = 'username' placeholder = 'Enter username' required>
