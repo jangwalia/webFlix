@@ -12,7 +12,7 @@
       // first create function which checks the length of firstname
       public function validateFirstname($fn) {
         if(strlen($fn) < 2 || strlen($fn) > 25) {
-          array_push($this->errorArray,"invalid length for name");
+          array_push($this->errorArray,Constants::$firstNameCharacters);
         }
       }
       //create another function which will handle error

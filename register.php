@@ -2,6 +2,7 @@
   require_once("includes/classes/Formsanitizer.php");
   require_once("includes/classes/config.php");
   require_once("includes/classes/Account.php");
+  require_once("includes/classes/Constants.php");
   $account = new Account ($conn);
   if(isset($_POST['submitButton'])){
     $firstName = Formsanitizer::sanitizeInput($_POST['firstName']);
@@ -34,7 +35,7 @@
       <span>to continue on webFlix</span>
     </div>
       <form method='POST'>
-        <?php echo $account->getError("invalid length for name"); ?>
+        <?php echo $account->getError(Constants::$firstNameCharacters); ?>
         <input type="text" name = 'firstName' placeholder = 'Enter Firstname' required>
         <input type="text" name = 'lastName' placeholder = 'Enter Lastname' required>
         <input type="text" name = 'username' placeholder = 'Enter username' required>
