@@ -9,8 +9,10 @@
     $lastName = Formsanitizer::sanitizeLastname($_POST['lastName']);
     $userName = Formsanitizer::sanitizeUsername($_POST['username']);
     $email = Formsanitizer::sanitizeEmail($_POST['email']);
+    $email2 = Formsanitizer::sanitizeEmail($_POST['email2']);
     $password = Formsanitizer::sanitizePassword($_POST['password']);
-    $account->validateFirstname($firstName);
+    $password2 = Formsanitizer::sanitizePassword($_POST['password2']);
+    $account->register($firstName,$lastName,$userName,$email,$email2,$password,$password2);
   }
 ?>
 
@@ -42,7 +44,7 @@
         <input type="email" name = 'email' placeholder = 'Enter email' required>
         <input type="email" name = 'email2' placeholder = 'Confirm email' required>
         <input type="password" name = 'password' placeholder = 'Enter password' required>
-        <input type="password" name = 'username2' placeholder = 'Confirm password' required>
+        <input type="password" name = 'password2' placeholder = 'Confirm password' required>
         <input type="submit" name = 'submitButton' value = 'Register'>
       </form>
       <a class = 'loginLink' href="login.php">if already registered..? you can login</a>
