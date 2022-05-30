@@ -14,6 +14,7 @@
       $this->validatelastname($ln);
       $this->validateusername($un);
       $this->validateEmail($em, $em2);
+      $this->validatePassword($pw, $pw2);
 
     }
       // check validation for firstname
@@ -61,6 +62,19 @@
         }
 
       }
+
+      private function validatePassword($pw, $pw2) {
+       if($pw != $pw2){
+        array_push($this->errorArray,Constants::$passwordMatch);
+        return;
+       }
+       if(strlen($pw) < 2 || strlen($pw2) > 25) {
+        array_push($this->errorArray,Constants::$passwordNameCharacters);
+        
+      }
+
+      }
+
       //create another function which will handle error
       public function getError($error){
         if(in_array($error,$this->errorArray)){

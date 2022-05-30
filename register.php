@@ -49,6 +49,8 @@
         <?php echo $account->getError(Constants::$Emailtaken); ?>
         <input type="email" name = 'email' placeholder = 'Enter email' required>
         <input type="email" name = 'email2' placeholder = 'Confirm email' required>
+        <?php echo $account->getError(Constants::$passwordMatch); ?>
+        <?php echo $account->getError(Constants::$passwordNameCharacters); ?>
         <input type="password" name = 'password' placeholder = 'Enter password' required>
         <input type="password" name = 'password2' placeholder = 'Confirm password' required>
         <input type="submit" name = 'submitButton' value = 'Register'>
