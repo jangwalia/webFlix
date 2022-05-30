@@ -12,7 +12,11 @@
     $email2 = Formsanitizer::sanitizeEmail($_POST['email2']);
     $password = Formsanitizer::sanitizePassword($_POST['password']);
     $password2 = Formsanitizer::sanitizePassword($_POST['password2']);
-    $account->register($firstName,$lastName,$userName,$email,$email2,$password,$password2);
+    $success = $account->register($firstName,$lastName,$userName,$email,$email2,$password,$password2);
+
+    if($success) {
+      header("Location: index.php");
+    }
   }
 ?>
 

@@ -16,6 +16,31 @@
       $this->validateEmail($em, $em2);
       $this->validatePassword($pw, $pw2);
 
+      if(empty($this->errorArray)) {
+        return $this->insertData($fn, $ln, $un, $em, $pw);
+      }
+
+      return false;
+
+    }
+    //insert data into database
+    private function insertData($fn, $ln, $un, $em, $pw) {
+      $pw = hash("sha512", $pw);
+
+      $query = $this->conn->prepare("INSERT INTO users (firstName, lastName, username, email, password)
+          VALUES(:fn, :ln, :un, :em, :pw)");
+
+      $query->bindValue(":fn",$fn);
+      $query->bindValue(":ln",$ln);
+      $query->bindValue(":un",$un);
+      $query->bindValue(":em",$em);
+      $query->bindValue(":pw",$pw);
+      
+      // $query->execute();
+      // var_dump($query->errorInfo());
+      return $query->execute();
+      //return false;
+     
     }
       // check validation for firstname
       // first create function which checks the length of firstname
