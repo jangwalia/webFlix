@@ -39,7 +39,10 @@
       <form method='POST'>
         <?php echo $account->getError(Constants::$firstNameCharacters); ?>
         <input type="text" name = 'firstName' placeholder = 'Enter Firstname' required>
+        <?php echo $account->getError(Constants::$lastNameCharacters); ?>
         <input type="text" name = 'lastName' placeholder = 'Enter Lastname' required>
+        <?php echo $account->getError(Constants::$userNameCharacters); ?>
+        <?php echo $account->getError(Constants::$userNametaken); ?>
         <input type="text" name = 'username' placeholder = 'Enter username' required>
         <input type="email" name = 'email' placeholder = 'Enter email' required>
         <input type="email" name = 'email2' placeholder = 'Confirm email' required>

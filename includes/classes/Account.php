@@ -24,6 +24,19 @@
         if(strlen($ln) < 2 || strlen($ln) > 25) {
           array_push($this->errorArray,Constants::$lasttNameCharacters);
         }
+      private function validateusername($un) {
+          if(strlen($un) < 2 || strlen($un) > 25) {
+            array_push($this->errorArray,Constants::$userNameCharacters);
+            return;
+          }
+          $query = $this->conn->prepare("SELECT * FROM users WHERE username=:un");
+          $query->bindValue(":un",$un);
+          $query->execute();
+
+          if($query->rowCount() !== 0) {
+            array_push($this->errorArray,Constants::$userNametaken);
+          }
+
       }
       //create another function which will handle error
       public function getError($error){
