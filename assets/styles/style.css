@@ -38,7 +38,7 @@ html,body {
 .column form input[type = 'text'],
 .column form input[type = 'email'],
 .column form input[type = 'password']{
-  font-size : 14px;
+  font-size : 18px;
   margin: 10px 0;
   border:none;
   border-bottom:1px solid #dedede;
@@ -75,4 +75,11 @@ html,body {
   font-size: 15px;
   font-weight: 400;
   text-decoration: none;
+}
+
+.errorMessage{
+  color: tomato;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
 }
