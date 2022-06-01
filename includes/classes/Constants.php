@@ -9,6 +9,7 @@
     public static $Emailtaken = "Email Already exists";
     public static $passwordMatch = "sorry passwords dont match";
     public static $passwordNameCharacters = "Your password should be between 2 and 25 characters";
+    public static $loginFailed = "Your email or password does not match";
 
   }
 

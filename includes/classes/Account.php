@@ -8,7 +8,7 @@
     public function __construct($conn) {
       $this->conn = $conn;
     }
-
+// register function
     public function register($fn,$ln,$un,$em,$em2,$pw,$pw2){
       $this->validateFirstname($fn);
       $this->validatelastname($ln);
@@ -21,6 +21,23 @@
       }
 
       return false;
+
+    }
+    // login function
+    public function login($un,$pw) {
+      $pw = hash("sha512", $pw);
+      $query = $this->conn->prepare("SELECT * FROM  users WHERE username =:un AND password =:pw");
+      $query->bindValue(":un",$un);
+      $query->bindValue(":pw",$pw);
+
+      $query->execute();
+
+      if($query->rowCount() == 1) {
+        return true; 
+      }
+      array_push($this->errorArray,Constants::$loginFailed);
+      return false;
+
 
     }
     //insert data into database
