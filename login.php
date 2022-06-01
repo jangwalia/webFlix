@@ -9,11 +9,18 @@ $account = new Account ($conn);
     $password = Formsanitizer::sanitizePassword($_POST['password']);
     $success = $account->login($userName,$password);
     if($success) {
+      $_SESSION["userLoggedIn"] = $userName;
       header("Location: index.php");
     }
   }
 
+//helper function to store value in input value
 
+function storeValues($name){
+  if(isset($_POST[$name])){
+    echo $_POST[$name];
+  }
+}
 ?>
 
 
@@ -38,7 +45,7 @@ $account = new Account ($conn);
     </div>
       <form method='POST'>
       <?php echo $account->getError(Constants::$loginFailed); ?>
-        <input type="text" name = 'username' placeholder = 'Enter username' required>
+        <input type="text" name = 'username' value="<?php storeValues("username") ?>" placeholder = 'Enter username' required>
         <input type="password" name = 'password' placeholder = 'Enter password' required>
         <input type="submit" name = 'submitButton' value = 'Register'>
       </form>
