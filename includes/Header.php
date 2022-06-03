@@ -18,5 +18,4 @@
   <title>Web Flix</title>
 </head>
 <body>
-
-  <div class="signInContainer">
+  <div class="wrapper">

@@ -18,10 +18,19 @@
 
        echo "
            <div class = 'previewContainer'>
-            <img src='$thumbNail' hidden>
+            <img class ='previewImage' src='$thumbNail' hidden>
             <video autoplay muted class ='previewVideo'>
             <source src = '$preview' type = 'video/mp4'>
             </video>
+            <div class='previewOverlay'>
+              <div class='mainDetails'>
+                <h3>$name</h3>
+                <div class = 'buttons'>
+                <button>Play</button>
+                <button>Volume</button>
+                </div>
+              </div>
+            </div>
           </div>";
 
     }
