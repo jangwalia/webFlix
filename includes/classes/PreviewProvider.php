@@ -16,7 +16,13 @@
 
       
 
-       echo "<img src='$thumbNail' >";
+       echo "
+           <div class = 'previewContainer'>
+            <img src='$thumbNail' hidden>
+            <video autoplay muted class ='previewVideo'>
+            <source src = '$preview' type = 'video/mp4'>
+            </video>
+          </div>";
 
     }
 
