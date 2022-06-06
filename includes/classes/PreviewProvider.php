@@ -19,7 +19,7 @@
        echo "
            <div class = 'previewContainer'>
             <img class ='previewImage' src='$thumbNail' hidden>
-            <video autoplay muted class ='previewVideo'>
+            <video autoplay muted class ='previewVideo' onended='changePreviewImage()'>
             <source src = '$preview' type = 'video/mp4'>
             </video>
             <div class='previewOverlay'>
@@ -27,7 +27,7 @@
                 <h3>$name</h3>
                 <div class = 'buttons'>
                 <button><i class='fa fa-play'></i> Play</button>
-                <button><i class='fa fa-volume-mute'></i></button>
+                <button onclick='controlVolume(this)'><i class='fa fa-volume-mute'></i></button>
                 </div>
               </div>
             </div>
