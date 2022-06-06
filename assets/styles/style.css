@@ -8,6 +8,7 @@ html,body {
   color: #333;
 }
 
+
 .signInContainer{
   background-color: #efefee;
   display: flex;
@@ -127,4 +128,14 @@ html,body {
     border-radius: 4px;
     margin-bottom: 15px;
     margin-right: 5px;
+    cursor: pointer;
+}
+
+button i{
+  color: inherit;
+}
+
+.mainDetails button:hover{
+  background-color: #e6e6e6;
+  color:#000;
 }
