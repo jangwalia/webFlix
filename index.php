@@ -3,6 +3,6 @@
 
   $preview = new PreviewProvider($conn,$loggedInUser);
 
-  $preview->createPreview(null);
+ echo $preview->createPreview(null);
 
 ?>

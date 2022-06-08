@@ -1,6 +1,7 @@
 html,body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 *{
@@ -8,6 +9,11 @@ html,body {
   color: #333;
 }
 
+.wrapper{
+  min-width:1050px;
+  min-height: 200%;
+  background-color: #141414;
+}
 
 .signInContainer{
   background-color: #efefee;

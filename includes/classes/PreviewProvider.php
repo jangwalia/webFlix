@@ -16,7 +16,7 @@
 
       
 
-       echo "
+       return  "
            <div class = 'previewContainer'>
             <img class ='previewImage' src='$thumbNail' hidden>
             <video autoplay muted class ='previewVideo' onended='changePreviewImage()'>
@@ -31,7 +31,9 @@
                 </div>
               </div>
             </div>
-          </div>";
+          </div>
+          
+          ";
 
     }
 
