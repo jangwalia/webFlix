@@ -22,7 +22,41 @@
     private function showcategoriesList($sqlData,$title,$tvShows,$movies) {
       $categoryID = $sqlData['id'];
       $title = $title == null ? $sqlData["name"] : $title;
-      return $title . "<br>";
+
+      if($tvShows && $movies) {
+        $entity = EntityProvider::getEntities ($this->conn, $categoryID, 30);
+      }
+
+      elseif ($tvShows) {
+        //only shows tvshows
+      }
+
+      else {
+        //only show movies
+      }
+
+      if(sizeof($entity) == 0){
+        return ;
+      }
+
+      $entityHtml = "";
+      $previewprovider = new PreviewProvider($this->conn,$this->username);
+      foreach($entity as $e) {
+        $entityHtml .= $previewprovider->showEntityimages($e);
+      }
+      
+      return "
+                <div class = 'category'>
+                  <a href = 'category.php?id=$categoryID' >
+                    <h3>$title</h3>
+                  </a>
+                
+                  <div class = 'entities'>
+                    $entityHtml
+                  </div>
+              </div>
+      
+    ";
     }
   }
 

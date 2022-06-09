@@ -9,6 +9,19 @@ html,body {
   color: #333;
 }
 
+h3{
+  color: #e5e5e5;
+}
+
+a h3:hover{
+  color: #fff;
+ 
+}
+
+a {
+  text-decoration: none;
+}
+
 .wrapper{
   min-width:1050px;
   min-height: 200%;
@@ -96,11 +109,35 @@ html,body {
   display: flex;
 }
 
+.previewContainer.small{
+  width:230px;
+  height: 129px;
+  margin-right: 4px;
+  display:inline-flex;
+}
+
+.previewContainer.small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .previewImage,
 .previewVideo {
   width :100%;
  }
 
+ .category{
+   display: flex;
+   flex-direction: column;
+   padding: 10px 0;
+ }
+
+ .entities{
+   overflow-x: auto;
+   overflow-y: hidden;
+   white-space: nowrap;
+ }
 
 .previewOverlay{
  background-color:rgba(0,0,0,0.3);

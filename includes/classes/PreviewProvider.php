@@ -37,12 +37,23 @@
 
     }
 
-    private function getRandomEntity(){
-     $query = $this->conn->prepare("SELECT * FROM entities ORDER BY RAND() LIMIT 1");
-     $query->execute();
+    public function showEntityimages($entity) {
+      $id = $entity->getId();
+      $thumbNail = $entity->getThumbNail();
+      $name = $entity->getName();
 
-     $row = $query->fetch(PDO::FETCH_ASSOC);
-     return new Entity($this->conn,$row);
+      return "<a href ='entity.php?id=$id'>
+        <div class ='previewContainer small'>
+        <img src = '$thumbNail' title = '$name '>
+
+        </div>
+      </a>
+      ";
+    }
+
+    private function getRandomEntity(){
+     $entity = EntityProvider::getEntities($this->conn, null, 1);
+     return $entity[0];
      //next step is to creatre entity class
     }
   }
