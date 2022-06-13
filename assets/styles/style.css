@@ -182,3 +182,16 @@ button i{
   background-color: #e6e6e6;
   color:#000;
 }
+
+.categoriesList {
+  padding: 0 50px;
+}
+
+.errorBanner{
+  color:#fff;
+  position: absolute;
+  margin-top: 25%;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+}
