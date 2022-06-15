@@ -12,4 +12,7 @@
   $preview = new PreviewProvider($conn,$loggedInUser);
   echo $preview->createPreview($newEntity);
 
+  $seasonProvider = new SeasonProvider($conn,$loggedInUser);
+  echo $seasonProvider->create($newEntity);
+
 ?>

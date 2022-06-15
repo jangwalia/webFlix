@@ -33,7 +33,17 @@
     public function getPreviewVideo() {
       return $this->sqlData["preview"];
     }
-  }
+
+    public function getSeasons(){
+      $query = $this->conn->prepare("SELECT * FROM videos WHERE entityId=:id
+      AND isMovie=0 ORDER BY season, episode ASC ");
+      $query->bindValue(":id",$entity->getId());
+      $query->execute();
+    }
+
+
+}
+  
 
 
 
