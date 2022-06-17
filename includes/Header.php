@@ -1,4 +1,5 @@
 <?php 
+ 
   require_once("includes/classes/config.php");
   require_once("includes/classes/PreviewProvider.php");
   require_once("includes/classes/Categorycontainer.php");
@@ -6,6 +7,9 @@
   require_once("includes/classes/EntityProvider.php");
   require_once("includes/classes/Errormessage.php");
   require_once("includes/classes/SeasonProvider.php");
+  require_once("includes/classes/Season.php");
+  
+  
   if(!isset($_SESSION["userLoggedIn"])) {
     header("Location: register.php");
   }

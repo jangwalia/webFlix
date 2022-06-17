@@ -1,4 +1,5 @@
 <?php 
+
   class Entity {
     private $conn, $sqlData;
     // $input can be either entity id which can be used to fetch all entity data from database
@@ -37,21 +38,28 @@
     public function getSeasons(){
       $query = $this->conn->prepare("SELECT * FROM videos WHERE entityId=:id
       AND isMovie=0 ORDER BY season, episode ASC ");
-      $query->bindValue(":id",$entity->getId());
-      $query->execute();
-      $seasons = array();
-      $viseos = array();
-      $currentSeason = null;
+       $query->bindValue(":id", $entity->getId());
+       $query->execute();
+       $seasons = array();
+       $videos = array();
+       $currentSeason = null;
 
       while($row = $query->fetch(PDO::FETCH_ASSOC)) {
-        $currentSeason = $row["seson"];
-        $video[] = new Video($this->conn,$row);
+        if($currentSeason != null && $currentSeason != $row["season"]) {
+          $seasons[] = new Season($currentSeason,$videos);
+          $videos = array();
+        }
+        $currentSeason = $row["season"];
+        $videos[] = new Video($this->conn,$row);
       }
 
-
+      if(sizeof($videos) != 0) {
+        $seasons[] = new Season($currentSeason,$videos);
+      }
+      return $seasons;
     }
-
-
+  
+  
 }
   
 ?>

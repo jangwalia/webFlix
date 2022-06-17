@@ -1,4 +1,4 @@
-<?php
+ <?php
   class SeasonProvider {
     private $conn, $username;
     public function __construct($conn,$username) {
@@ -11,5 +11,5 @@
      $seasons = $entity->getSeasons();
   }
 
-
+  }
 ?>
