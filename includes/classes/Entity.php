@@ -39,13 +39,19 @@
       AND isMovie=0 ORDER BY season, episode ASC ");
       $query->bindValue(":id",$entity->getId());
       $query->execute();
+      $seasons = array();
+      $viseos = array();
+      $currentSeason = null;
+
+      while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+        $currentSeason = $row["seson"];
+        $video[] = new Video($this->conn,$row);
+      }
+
+
     }
 
 
 }
   
-
-
-
-
 ?>
