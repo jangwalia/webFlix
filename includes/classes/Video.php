@@ -19,6 +19,32 @@ class Video {
     $this->entity = new Entity($conn,$this->sqlData["entityId"]);
     
   }
+
+  public function getId(){
+   return  $this->sqlData["id"];
+
+  }
+  public function getTitle(){
+    return  $this->sqlData["title"];
+    
+   }
+   public function getDescription(){
+    return  $this->sqlData["description"];
+    
+   }
+   public function getFilepath(){
+    return  $this->sqlData["filePath"];
+    
+   }
+   public function getThumbnail(){
+    return  $this->entity->getThumbNail();
+    
+   }
+   public function getEpisodeNumber(){
+    return  $this->sqlData["episode"];
+    
+   }
+
 }
 
 

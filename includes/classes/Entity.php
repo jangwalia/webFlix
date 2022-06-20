@@ -38,7 +38,7 @@
     public function getSeasons(){
       $query = $this->conn->prepare("SELECT * FROM videos WHERE entityId=:id
       AND isMovie=0 ORDER BY season, episode ASC ");
-       $query->bindValue(":id", $entity->getId());
+       $query->bindValue(":id", $this->getId());
        $query->execute();
        $seasons = array();
        $videos = array();
