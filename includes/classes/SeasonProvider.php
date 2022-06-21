@@ -13,10 +13,16 @@
       return;
      }
      foreach($seasons as $season) {
-      $seasonNumbers =  $season->getSeasonNumber() . "<br>";
-      $seasonHtml .= "<div class = 'seasonNumbers'>
+      $seasonNumbers =  $season->getSeasonNumber();
+      $videoHtml = "";
+      foreach($season->getVideos() as $video){
+        $videoHtml .= $this->createVideoSquare($video);
+      }
+      $seasonHtml .= "<div class = 'season'>
                       <h3>Season : $seasonNumbers</h3>
-      
+                      <div class = 'videos'>
+                      $videoHtml
+                      </div>
                   </div>";
      }
 
@@ -28,6 +34,23 @@
     $thumbnail = $video->getThumbnail();
     $description = $video->getDescription();
     $episodeNumber = $video->getEpisodeNumber();
+
+    return "<a href ='watch.php?id=$id'>
+              <div class = 'episodeContainer'>
+                <div class ='contents'>
+                  <img src = '$thumbnail'>
+                  <div class = 'videoInfo'>
+                  <h4>$episodeNumber . $title</h4>
+                  <span>$description</span>
+                  </div>
+                </div>
+              
+              
+              </div>
+    
+    
+    
+    </a>";
   }
 
   }
