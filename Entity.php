@@ -15,4 +15,8 @@
   $seasonProvider = new SeasonProvider($conn,$loggedInUser);
   echo $seasonProvider->create($newEntity);
 
+
+  $Categorycontainers = new CategoryContainer($conn,$loggedInUser);
+  echo $Categorycontainers->Showcategory($newEntity->getCategoryId(),"You might also like");
+
 ?>
