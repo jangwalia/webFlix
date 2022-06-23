@@ -38,6 +38,9 @@ function updateProgress(videoId,username) {
 
 function addDuration(videoId,username){
   $.post("Ajax/addDuration.php", {videoId: videoId,username: username}, function(data){
-    alert(data);
+    if(data !== null && data !== ""){
+      alert(data);
+    }
+   
   });
 }
