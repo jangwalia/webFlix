@@ -29,11 +29,21 @@ function startHideTimer(){
 
 function initVideo(videoId,username){
   startHideTimer();
-  updateProgress(videoId,username);
+  updateProgressTimer(videoId,username);
 }
 
-function updateProgress(videoId,username) {
+function updateProgressTimer(videoId,username) {
   addDuration(videoId,username);
+  let timer;
+  $("video").on("playing",function(event){
+        window.clearInterval();
+        timer = setInterval(function(){
+          updateProgress(videoId,username,event.target.currentTime);
+        },3000);
+  })
+  .on("ended",function(){
+    window.clearInterval(timer);
+  })
 }
 
 function addDuration(videoId,username){
@@ -44,3 +54,13 @@ function addDuration(videoId,username){
    
   });
 }
+
+function updateProgress(videoId,username,progress){
+  $.post("Ajax/updateDuration.php", {videoId: videoId,username: username,progress: progress}, function(data){
+    if(data !== null && data !== ""){
+      alert(data);
+    }
+   
+  });
+}
+
