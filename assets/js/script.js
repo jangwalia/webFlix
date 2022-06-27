@@ -29,6 +29,7 @@ function startHideTimer(){
 
 function initVideo(videoId,username){
   startHideTimer();
+  setStarttime(videoId,username);
   updateProgressTimer(videoId,username);
 }
 
@@ -75,3 +76,18 @@ function setFinished(videoId,username){
   });
 }
 
+
+function setStarttime(videoId,username){
+  $.post("Ajax/getProgress.php", {videoId: videoId,username: username}, function(data){
+    if(isNaN(data)){
+      alert(data);
+      return;
+    }
+
+    $("video").on("canplay",function(){
+      this.currentTime = data;
+      $("video").off("canplay");
+    })
+   
+  });
+}
